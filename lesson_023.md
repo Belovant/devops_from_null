@@ -51,7 +51,7 @@ src local IP:port	src global IP:port	dst IP	protocol
 ### Задание 5.
 Вспомните схему из 3-го урока.
 
-
+![image](https://user-images.githubusercontent.com/107868869/191015019-e6a6f32b-6843-4cfb-a675-162c0b489a5d.png)
 
 Немного перефразируем прошлый вопрос.
 
