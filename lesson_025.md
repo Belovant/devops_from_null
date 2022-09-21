@@ -8,13 +8,13 @@ Telnet; 23
 
 SSH; 22
 
-FTP; 20, 21, 
+FTP; 20, 21, 49152-65534
 
-SNMP; 161, 162, 49152-65534
+SNMP; 161, 162
 
 Приведите ответ в виде списка портов.
 
-Ответы: в задании.
+Ответы: в задании. Также добавлю, что это стандартные порты, которые используются указанными протоколами, но можно перенастроить их на работу по другим портам.
 
 ### Задание 2.
 Какой по счету уровень модели OSI называется прикладным (application layer)?
@@ -67,3 +67,6 @@ openssl x509 -subject -issuer -noout -in ca.pem
 openssl x509 -subject -issuer -noout -in certificate.crt
 
 openssl verify certificate.crt
+
+Ответ: ![image](https://user-images.githubusercontent.com/107868869/191593007-673b0ec8-c712-4388-ab06-10dc72aab580.png)
+
