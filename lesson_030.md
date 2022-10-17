@@ -47,7 +47,7 @@ Anycast адреса назначаются группе хостов, но па
 
 Ответ:
 
-![Uploading image.png…]()
+![image](https://user-images.githubusercontent.com/107868869/196222404-b0f8bc1b-2fee-4bb9-8aba-8e052a70032a.png)
 
 ---
 
