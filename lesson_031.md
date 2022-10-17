@@ -24,6 +24,10 @@
 
 Ответ:
 
+![image](https://user-images.githubusercontent.com/107868869/196288614-b199a081-438b-4f73-9f14-4ccb89db365a.png)
+
+![image](https://user-images.githubusercontent.com/107868869/196288841-4876e0ef-c39d-466b-9c1f-d14902f4623a.png)
+
 ------
 ### Задание 3.
 
