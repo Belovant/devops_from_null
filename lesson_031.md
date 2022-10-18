@@ -42,3 +42,9 @@
 *Пришлите получившийся код и скриншот, показывающий работу скрипта в качестве ответа.*
 
 Ответ:
+
+![image](https://user-images.githubusercontent.com/107868869/196543357-cd623bb0-9cec-4186-aaf0-cf85287d8bdd.png)
+
+![image](https://user-images.githubusercontent.com/107868869/196544076-5a1584d5-4c40-4481-ae26-3c278c13fbb4.png)
+
+
