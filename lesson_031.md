@@ -8,9 +8,9 @@
 
 Ответ:
 
-![image](https://user-images.githubusercontent.com/107868869/196259703-7e963986-cfda-4cfd-aa39-b40bb4f31435.png)
+![image](https://user-images.githubusercontent.com/107868869/197620614-d3b3c6d1-e8d5-456e-b7ef-30ad174646c6.png)
 
-![image](https://user-images.githubusercontent.com/107868869/196259593-59c369b0-9f86-4dd7-987e-185749b827c8.png)
+![image](https://user-images.githubusercontent.com/107868869/197620010-345678a9-be16-414f-9271-5584100e90f0.png)
 
 ------
 ### Задание 2.
