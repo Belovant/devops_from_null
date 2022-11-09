@@ -132,6 +132,8 @@ http {
 
 ![image](https://user-images.githubusercontent.com/107868869/200943399-e0c7b286-886d-44a8-82d8-9379c9782020.png)
 
+ИЛИ
+
 ![image](https://user-images.githubusercontent.com/107868869/200942351-f749486b-a891-4d5e-9aaf-2cfac6eb6641.png)
  
  - процессе с самым большим PID;
