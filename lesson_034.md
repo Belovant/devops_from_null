@@ -26,7 +26,9 @@
 *Пришлите получившийся скриншот вывода.*
 
 Ответ: использовал команды 
+
 `cat /etc/* 2> /home/anton/errors.txt`
+
 `wc -l /home/anton/errors.txt`
 
 Вывод:
@@ -43,6 +45,10 @@
 
 *Пришлите получившийся скриншот вывода.*
 
+Ответ: команда `ls -l | cut -c1-10 | sort | uniq | head -n -1 | wc -l`
+
+![image](https://user-images.githubusercontent.com/107868869/201163512-3ea081ad-0386-4d78-ae29-0f73ebc2dacb.png)
+
 ------
 ## Дополнительные задания (со звездочкой*)
 
@@ -56,7 +62,7 @@
 
 *Пришлите получившийся скриншот вывода.*
 
-Ответ:
+Ответ: команда `find -type f -name ".*"  | wc -l`
 
 ![image](https://user-images.githubusercontent.com/107868869/201157875-7e72d272-1b24-4a85-85ef-76af18034616.png)
 
