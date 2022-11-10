@@ -26,10 +26,12 @@
 *Пришлите получившийся скриншот вывода.*
 
 Ответ: использовал команды 
-`cat /etc/* 2> /home/anton/errors.txt
-wc -l /home/anton/errors.txt`
+`cat /etc/* 2> /home/anton/errors.txt`
+`wc -l /home/anton/errors.txt`
 
-Вывод
+Вывод:
+
+![image](https://user-images.githubusercontent.com/107868869/201153698-4dbfa2c1-21d6-4219-aed6-899d9fd1322d.png)
 
 ------
 ### Задание 3.
