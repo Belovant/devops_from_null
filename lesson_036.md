@@ -39,7 +39,13 @@ https://dl-cdn.alpinelinux.org/alpine/v3.13/releases/x86/alpine-standard-3.13.5-
 С сайта https://alpinelinux.org. 
 
 *Приложите скриншоты действий.*
- 
+
+Установил QEMU командой `sudo apt install qemu qemu-kvm qemu-system qemu-utils`
+
+![image](https://user-images.githubusercontent.com/107868869/203088049-42a33af1-32c4-450f-a32a-e3734486a621.png)
+
+![image](https://user-images.githubusercontent.com/107868869/203101510-715d522a-d05d-498d-9597-62560fb25200.png)
+
 ---
 
 ### Задание 3 
@@ -52,17 +58,28 @@ https://dl-cdn.alpinelinux.org/alpine/v3.13/releases/x86/alpine-standard-3.13.5-
 С сайта https://alpinelinux.org. 
 
 *Приложите скриншоты действий.*
- 
+
+Установил libvirt командой `sudo apt install libvirt-clients libvirt-daemon-system virtinst`
+
+![image](https://user-images.githubusercontent.com/107868869/203103407-c2863fe5-400a-446e-a8e4-6dec18cb5189.png)
+
+![image](https://user-images.githubusercontent.com/107868869/203104569-6afc05c8-525e-4d0d-a94c-5e270c1470c6.png)
+
  ---
 
 ### Задание 4
 
 1. Создайте проект в GNS3 (предварительно установив GNS3  https://github.com/GNS3/gns3-gui/releases).
+
+![image](https://user-images.githubusercontent.com/107868869/203118070-72e7996c-32c8-4265-96c5-045a61764402.png)
+
 2. Создайте следующую топологию.
 
 ![image](https://user-images.githubusercontent.com/73060384/118615008-f95e9680-b7c8-11eb-9610-fc1e73d8bd70.png)
 
-4. Для реализации воспользуйтесь QEMU машинами (можно дублировать, сделанную ранее). 
+3. Для реализации воспользуйтесь QEMU машинами (можно дублировать, сделанную ранее).
+
+![image](https://user-images.githubusercontent.com/107868869/203117947-66494a97-1f53-4e4b-90e8-8119852e9d10.png)
 
 *Приложите скриншоты действий.*
 
