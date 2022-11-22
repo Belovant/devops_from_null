@@ -38,6 +38,8 @@
 
 *Приложите скриншот*
 
+![image](https://user-images.githubusercontent.com/107868869/203126743-5dc68de1-a96c-4a91-91bb-7445c5fc9855.png)
+
 ---
 
 ### Задание 4. 
@@ -47,6 +49,8 @@
 *Приложите скриншот*
 
 ---
+
+![image](https://user-images.githubusercontent.com/107868869/203126892-ab78510e-5e48-4aae-bbe9-745305da1c53.png)
 
 **
 
