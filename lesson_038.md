@@ -54,7 +54,7 @@ networks
 
 *Приложите текст конфига на этом этапе*
 
-![image](https://user-images.githubusercontent.com/107868869/204353159-2ca05daa-3a57-4526-8b19-5acf651a4e9b.png)
+![image](https://user-images.githubusercontent.com/107868869/204356669-694ebd94-2807-4d06-a50e-6c1bd8878620.png)
 
 ---
 
@@ -69,6 +69,8 @@ networks
 
 *Приложите текст конфига текущего сервиса*
 
+![image](https://user-images.githubusercontent.com/107868869/204368530-5ee0b5c6-98c0-4c60-abfd-4cbe194cdbf2.png)
+
 ---
 
 ### Задание 4. 
@@ -82,6 +84,11 @@ networks
 *Приложите текст конфига текущего сервиса*
 *Приложите скриншот админки pgAdmin*
 
+![image](https://user-images.githubusercontent.com/107868869/204368471-9a7c7cdb-a612-4690-ba9c-f356fe39aad2.png)
+
+![image](https://user-images.githubusercontent.com/107868869/204369339-b0734d62-ab7f-443a-a3cb-bdc9efe2fa79.png)
+
+
 ---
 
 ### Задание 5. 
@@ -93,6 +100,8 @@ networks
 
 *Приложите текст конфига текущего сервиса*
 
+![image](https://user-images.githubusercontent.com/107868869/204371142-d62b66ca-5c0f-4056-b8f7-aeefa30016d3.png)
+
 ---
 
 ### Задание 6. 
@@ -101,6 +110,8 @@ networks
 Настройте его подключение к вашему СУБД.
 
 Назначьте для данного контейнера статический IP из подсети 172.22.0.0/24.
+
+![image](https://user-images.githubusercontent.com/107868869/204373264-77b52d98-ab8e-458f-8624-c9afc6ff9329.png)
 
 *Приложите текст конфига текущего сервиса
 
@@ -114,13 +125,93 @@ networks
 Пришлите скриншот команды docker ps
 Приложите скриншот авторизации в админке Zabbix*
 
+version: '3'
+services:
+
+  belovan-netology-db:
+    image: postgres:latest # Образ, который мы будем использовать
+    container_name: belovan-netology-db # Имя, которым будет называться наш контейнер
+    ports: # Порты, которые мы пробрасываем с нашего докер сервера внутрь контейнера
+      - 5432:5432
+    volumes: # Папка, которую мы пробросим с докер сервера внутрь контейнера
+      - ./pg_data:/var/lib/postgresql/data/pgdata
+    environment: # Переменные среды
+      POSTGRES_PASSWORD: belovan12!3!! # Задаём пароль от пользователя postgres
+      POSTGRES_DB: belovan-db # БД которая сразу же будет создана
+      PGDATA: /var/lib/postgresql/data/pgdata # Путь внутри контейнера, где будет папка pgdata
+    networks:
+      belovan-my-netology-hw:
+        ipv4_address: 172.22.0.2
+    restart: always # Режим перезапуска контейнера. Контейнер всегда будет перезапускаться
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: belovan-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: belovan@ilove-netology.com
+      PGADMIN_DEFAULT_PASSWORD: belovan12!3!!
+    ports:
+      - "61231:80"
+    networks:
+      belovan-my-netology-hw:
+        ipv4_address: 172.22.0.3
+    restart: always
+
+  zabbix-server:
+    image: zabbix/zabbix-server-pgsql
+    links:
+      - belovan-netology-db
+    container_name: belovan-zabbix-netology
+    environment:
+      DB_SERVER_HOST: '172.22.0.2'
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: belovan12!3!!
+    ports:
+      - "10051:10051"
+    networks:
+      belovan-my-netology-hw:
+        ipv4_address: 172.22.0.4
+    restart: always
+
+  zabbix_wgui:
+    image: zabbix/zabbix-web-apache-pgsql
+    links:
+      - belovan-netology-db
+    container_name: netology_zabbix_wgui
+    environment:
+      DB_SERVER_HOST: '172.22.0.2'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: belovan12!3!!
+      ZBX_SERVER_HOST: "zabbix_wgui"
+      PHP_TZ: "Europe/Moscow"
+    ports:
+      - "80:8080"
+      - "443:8443"
+    networks:
+      belovan-my-netology-hw:
+        ipv4_address: 172.22.0.5
+    restart: always
+
+networks:
+  belovan-my-netology-hw:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.22.0.0/24
+
+![image](https://user-images.githubusercontent.com/107868869/204374555-942278ec-80de-483f-a52b-4abc023d7cea.png)
+
+![image](https://user-images.githubusercontent.com/107868869/204375933-ac8652b3-e1b8-430d-a027-260f84d878b0.png)
+
 ---
 
-### Задание 7. 
+### Задание 8. 
 
 Убейте все контейнеры и потом удалите их
 
 *Приложите скриншот консоли с проделанными действиями*
+
+![image](https://user-images.githubusercontent.com/107868869/204376668-3bf98bb6-16e6-4824-a123-b53cf9452bdd.png)
 
 ---
 
@@ -129,7 +220,7 @@ networks
 ## Дополнительные задания (со звездочкой*)
 Эти задания дополнительные (не обязательные к выполнению) и никак не повлияют на получение вами зачета по этому домашнему заданию. Вы можете их выполнить, если хотите глубже и/или шире разобраться в материале.
 
-### Задание 8*. 
+### Задание 9*. 
 
 Запустите свой сценарий на чистом железе без предзагруженных образов.
 
