@@ -54,6 +54,8 @@ networks
 
 *Приложите текст конфига на этом этапе*
 
+![image](https://user-images.githubusercontent.com/107868869/204353159-2ca05daa-3a57-4526-8b19-5acf651a4e9b.png)
+
 ---
 
 ### Задание 3. 
