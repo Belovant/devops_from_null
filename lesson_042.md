@@ -1,0 +1,121 @@
+### 8.2. Что такое DevOps. СI/СD [Белов Антон]
+## Задание 1
+**Что нужно сделать:**
+
+1. Установите себе jenkins по инструкции из лекции или любым другим способом из официальной документации. Использовать Docker в этом задании нежелательно.
+2. Установите на машину с jenkins [golang](https://golang.org/doc/install).
+3. Используя свой аккаунт на GitHub, сделайте себе форк [репозитория](https://github.com/netology-code/sdvps-materials.git). В этом же репозитории находится [дополнительный материал для выполнения ДЗ](https://github.com/netology-code/sdvps-materials/blob/main/CICD/8.2-hw.md).
+3. Создайте в jenkins Freestyle Project, подключите получившийся репозиторий к нему и произведите запуск тестов и сборку проекта ```go test .``` и  ```docker build .```.
+
+В качестве ответа пришлите скриншоты с настройками проекта и результатами выполнения сборки.
+
+
+## Решение:
+![8.02 Task #1](8.02.1.1.png)
+![8.02 Task #1](8.02.1.2.png)
+![8.02 Task #1](8.02.1.3.png)
+![8.02 Task #1](8.02.1.4.png)
+
+
+## Задание 2
+**Что нужно сделать:**
+
+1. Создайте новый проект pipeline.
+2. Перепишите сборку из задания 1 на declarative в виде кода.
+
+В качестве ответа пришлите скриншоты с настройками проекта и результатами выполнения сборки.
+
+
+
+## Решение:
+```
+pipeline {
+ agent any
+ stages {
+  stage('Git') {
+   steps {git branch: 'main', url: 'https://github.com/Belovant/sdvps-materials'}
+  }
+  stage('Test') {
+   steps {
+    sh 'go test .'
+   }
+  }
+  stage('Build') {
+   steps {
+    sh 'docker build . -t ubuntu-bionic:8082/hello-world:v$BUILD_NUMBER'
+   }
+  }
+   }
+ }
+```
+
+![8.02 Task #2](8.02.2.1.png)
+![8.02 Task #2](8.02.2.2.png)
+
+
+
+
+## Задание 3
+**Что нужно сделать:**
+
+1. Установите на машину Nexus.
+1. Создайте raw-hosted репозиторий.
+1. Измените pipeline так, чтобы вместо Docker-образа собирался бинарный go-файл. Команду можно скопировать из Dockerfile.
+1. Загрузите файл в репозиторий с помощью jenkins.
+
+В качестве ответа пришлите скриншоты с настройками проекта и результатами выполнения сборки.
+
+
+## Решение:
+
+Код:
+
+```
+pipeline {
+ agent any
+ stages {
+  stage('Git') {
+   steps {git branch: 'main', url: 'https://github.com/Belovant/sdvps-materials'}
+  }
+  stage('Test') {
+   steps {
+    sh 'go test .'
+   }
+  }
+  stage('Build') {
+   steps {
+    sh 'docker run --rm -v "$PWD":$GOPATH/src/github.com/netology-code/sdvps-materials -w $GOPATH/src/github.com/netology-code/sdvps-materials -e GOOS=linux -e CGO_ENABLED=0 golang:1.16 go build -a -installsuffix nocgo -o ./app .'
+   }
+  }
+    
+
+  stage ('nexus deploy') {
+    steps {
+      nexusArtifactUploader(
+        nexusVersion: 'nexus3',
+        protocol: 'http',
+        nexusUrl: '84.252.140.153:8081',
+        groupId: '',
+        version: '',
+        repository: 'belovanexusrep',
+        credentialsId: 'ef8cfd65-27ed-4298-aa78-bb5262afcf3f',
+        artifacts: [
+          [artifactId: '',
+            classifier: '',
+            file: 'app',
+            type: '']
+          ]
+      )
+   }
+  }         
+ }
+}
+
+ ```
+
+
+
+![8.02 Task #2](8.02.3.1.png)
+![8.02 Task #2](8.02.3.2.png)
+![8.02 Task #2](8.02.3.3.png)
+
